@@ -16,6 +16,8 @@ We would most possibly need such an instance when we need to swap it with anothe
 Consider the following fictional type `Share` which divides a whole into pieces. Without providing the `number_of_shares`, this type is meaningless; i.e., we cannot justify implementing `Default`. However, if we need to be able to create dummy Share's, we can simply use `pseudo_default`. The created share will be useless; however, a valid and safe `Share` instance.
 
 ```rust
+use orx_pseudo_default::PseudoDefault;
+
 struct Share {
     number_of_shares: std::num::NonZeroUsize,
 }
