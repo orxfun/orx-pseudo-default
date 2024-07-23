@@ -24,6 +24,8 @@
 //! The created share will be useless; however, a valid and safe `Share` instance.
 //!
 //! ```rust
+//! use orx_pseudo_default::PseudoDefault;
+//!
 //! struct Share {
 //!     number_of_shares: std::num::NonZeroUsize,
 //! }
