@@ -1,0 +1,12 @@
+[package]
+name = "orx-pseudo-default"
+version = "1.0.0"
+edition = "2021"
+authors = ["orxfun <orx.ugur.arikan@gmail.com>"]
+description = "PseudoDefault is a simple trait for creating a default instance of a type, which is not necessarily useful."
+license = "MIT"
+repository = "https://github.com/orxfun/orx-pseudo-default/"
+keywords = ["default", "pseudo", "uninitialized", "swap"]
+categories = ["data-structures", "rust-patterns"]
+
+[dependencies]
