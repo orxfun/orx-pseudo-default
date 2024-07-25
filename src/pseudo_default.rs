@@ -1,4 +1,4 @@
-/// `PseudoDefault` ⊇ `Default` trait allows to create a cheap default instance of a type, which **does not claim to be useful**.
+/// `PseudoDefault` trait allows to create a cheap default instance of a type, which **does not claim to be useful**.
 ///
 /// The difference of `PseudoDefault` from `Default` is the relaxed expectation of the created instance to be useful.
 ///
@@ -9,8 +9,7 @@
 /// * We can use pseudo-default to fill the gaps when we need to take out an element from a collection of types that cannot implement Default.
 ///
 /// Note that pseudo-default requirement is more relaxed than that of default, and hence,
-/// * types implementing Default is the subset of types implementing PseudoDefault,
-/// * in other words, every type implementing Default automatically implements PseudoDefault,
+/// * types implementing Default can implement PseudoDefault,
 /// * additionally, types that cannot implement Default can manually implement PseudoDefault, provided that it is safe and cheap to create a pseudo instance of the type without any arguments.
 ///
 /// # Example
@@ -70,7 +69,6 @@
 /// #         }
 /// #     }
 /// # }
-///
 /// struct TakeVec<T>(Vec<T>);
 ///
 /// impl<T> From<Vec<T>> for TakeVec<T> {
@@ -95,7 +93,7 @@
 ///     }
 /// }
 ///
-/// // auto implemented default types
+/// // implemented default types
 ///
 /// let mut vec: TakeVec<_> = vec![0, 1, 2, 3].into();
 /// assert_eq!(vec.take(2), Some(2));
@@ -117,7 +115,7 @@
 /// assert_eq!(vec.take(0).map(|x| x.number_of_shares.into()), Some(42));
 /// ```
 pub trait PseudoDefault {
-    /// Creates a cheap default instance of a type, which **does not claim to be useful**.
+    /// `PseudoDefault` trait allows to create a cheap default instance of a type, which **does not claim to be useful**.
     ///
     /// The difference of `PseudoDefault` from `Default` is the relaxed expectation of the created instance to be useful.
     ///
@@ -128,8 +126,7 @@ pub trait PseudoDefault {
     /// * We can use pseudo-default to fill the gaps when we need to take out an element from a collection of types that cannot implement Default.
     ///
     /// Note that pseudo-default requirement is more relaxed than that of default, and hence,
-    /// * types implementing Default is the subset of types implementing PseudoDefault,
-    /// * in other words, every type implementing Default automatically implements PseudoDefault,
+    /// * types implementing Default can implement PseudoDefault,
     /// * additionally, types that cannot implement Default can manually implement PseudoDefault, provided that it is safe and cheap to create a pseudo instance of the type without any arguments.
     ///
     /// # Example
@@ -189,7 +186,6 @@ pub trait PseudoDefault {
     /// #         }
     /// #     }
     /// # }
-    ///
     /// struct TakeVec<T>(Vec<T>);
     ///
     /// impl<T> From<Vec<T>> for TakeVec<T> {
@@ -214,7 +210,7 @@ pub trait PseudoDefault {
     ///     }
     /// }
     ///
-    /// // auto implemented default types
+    /// // implemented default types
     ///
     /// let mut vec: TakeVec<_> = vec![0, 1, 2, 3].into();
     /// assert_eq!(vec.take(2), Some(2));
@@ -236,10 +232,4 @@ pub trait PseudoDefault {
     /// assert_eq!(vec.take(0).map(|x| x.number_of_shares.into()), Some(42));
     /// ```
     fn pseudo_default() -> Self;
-}
-
-impl<T: Default> PseudoDefault for T {
-    fn pseudo_default() -> Self {
-        Default::default()
-    }
 }

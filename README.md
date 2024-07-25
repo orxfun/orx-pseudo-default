@@ -3,7 +3,7 @@
 [![orx-pseudo-default crate](https://img.shields.io/crates/v/orx-pseudo-default.svg)](https://crates.io/crates/orx-pseudo-default)
 [![orx-pseudo-default documentation](https://docs.rs/orx-pseudo-default/badge.svg)](https://docs.rs/orx-pseudo-default)
 
-`PseudoDefault` ⊇ `Default` trait allows to create a cheap default instance of a type, which **does not claim to be useful**.
+`PseudoDefault` trait allows to create a cheap default instance of a type, which **does not claim to be useful**.
 
 The difference of `PseudoDefault` from `Default` is the relaxed expectation of the created instance to be useful.
 
@@ -14,8 +14,7 @@ This trait allows to avoid unsafe code in certain use cases. For instance:
 * We can use pseudo-default to fill the gaps when we need to take out an element from a collection of types that cannot implement Default.
 
 Note that pseudo-default requirement is more relaxed than that of default, and hence,
-* types implementing Default is the subset of types implementing PseudoDefault,
-* in other words, every type implementing Default automatically implements PseudoDefault,
+* types implementing Default can implement PseudoDefault,
 * additionally, types that cannot implement Default can manually implement PseudoDefault, provided that it is safe and cheap to create a pseudo instance of the type without any arguments.
 
 # Example
@@ -83,7 +82,7 @@ impl<T: PseudoDefault> TakeVec<T> {
     }
 }
 
-// auto implemented default types
+// implemented default types
 
 let mut vec: TakeVec<_> = vec![0, 1, 2, 3].into();
 assert_eq!(vec.take(2), Some(2));
