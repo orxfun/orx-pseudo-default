@@ -1,9 +1,9 @@
 [package]
 name = "orx-pseudo-default"
-version = "1.1.0"
+version = "1.2.0"
 edition = "2021"
 authors = ["orxfun <orx.ugur.arikan@gmail.com>"]
-description = "PseudoDefault ⊇ Default trait allows to create a cheap default instance of a type, which does not claim to be useful."
+description = "PseudoDefault trait allows to create a cheap default instance of a type, which does not claim to be useful."
 license = "MIT"
 repository = "https://github.com/orxfun/orx-pseudo-default/"
 keywords = ["default", "pseudo", "uninitialized", "swap"]
