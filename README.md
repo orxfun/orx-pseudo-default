@@ -104,6 +104,37 @@ let mut vec: TakeVec<_> = vec![
 assert_eq!(vec.take(0).map(|x| x.number_of_shares.into()), Some(42));
 ```
 
+### Derive
+
+Similar to `Default`, it is possible to derive `PseudoDefault` provided that all members also implement `PseudoDefault`.
+
+```rust
+use orx_pseudo_default::*;
+
+#[derive(PseudoDefault)]
+struct ChildStruct {
+    a: String,
+    b: char,
+    c: Vec<u32>,
+}
+
+#[derive(PseudoDefault)]
+struct MyStruct {
+    x: ChildStruct,
+    y: bool,
+    z: Option<usize>,
+}
+
+assert_eq!(String::pseudo_default(), MyStruct::pseudo_default().x.a);
+assert_eq!(char::pseudo_default(), MyStruct::pseudo_default().x.b);
+assert_eq!(Vec::<u32>::pseudo_default(), MyStruct::pseudo_default().x.c);
+assert_eq!(bool::pseudo_default(), MyStruct::pseudo_default().y);
+assert_eq!(
+    Option::<usize>::pseudo_default(),
+    MyStruct::pseudo_default().z
+);
+```
+
 ## Contributing
 
 Contributions are welcome! If you notice an error, have a question or think something could be improved, please open an [issue](https://github.com/orxfun/orx-pseudo-default/issues/new) or create a PR.
