@@ -1,6 +1,7 @@
 # orx-pseudo-default
 
 [![orx-pseudo-default crate](https://img.shields.io/crates/v/orx-pseudo-default.svg)](https://crates.io/crates/orx-pseudo-default)
+[![orx-pseudo-default crate](https://img.shields.io/crates/d/orx-pseudo-default.svg)](https://crates.io/crates/orx-pseudo-default)
 [![orx-pseudo-default documentation](https://docs.rs/orx-pseudo-default/badge.svg)](https://docs.rs/orx-pseudo-default)
 
 `PseudoDefault` trait allows to create a cheap default instance of a type, which **does not claim to be useful**.
@@ -141,4 +142,4 @@ Contributions are welcome! If you notice an error, have a question or think some
 
 ## License
 
-This library is licensed under MIT license. See LICENSE for details.
+Dual-licensed under [Apache 2.0](LICENSE-APACHE) or [MIT](LICENSE-MIT).
