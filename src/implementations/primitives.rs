@@ -1,18 +1,18 @@
-use crate::impl_from_default;
+use crate::impl_on_static_life_type;
 
-impl_from_default!(usize);
-impl_from_default!(u8);
-impl_from_default!(u16);
-impl_from_default!(u32);
-impl_from_default!(u64);
-impl_from_default!(u128);
-impl_from_default!(isize);
-impl_from_default!(i8);
-impl_from_default!(i16);
-impl_from_default!(i32);
-impl_from_default!(i64);
-impl_from_default!(i128);
+impl_on_static_life_type!(usize, 0);
+impl_on_static_life_type!(u8, 0);
+impl_on_static_life_type!(u16, 0);
+impl_on_static_life_type!(u32, 0);
+impl_on_static_life_type!(u64, 0);
+impl_on_static_life_type!(u128, 0);
+impl_on_static_life_type!(isize, 0);
+impl_on_static_life_type!(i8, 0);
+impl_on_static_life_type!(i16, 0);
+impl_on_static_life_type!(i32, 0);
+impl_on_static_life_type!(i64, 0);
+impl_on_static_life_type!(i128, 0);
 
-impl_from_default!(char);
-impl_from_default!(bool);
-impl_from_default!(());
+impl_on_static_life_type!(char, '0');
+impl_on_static_life_type!(bool, false);
+impl_on_static_life_type!((), ());
