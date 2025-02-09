@@ -4,7 +4,10 @@ use core::{
     mem::ManuallyDrop,
 };
 
+// Box is only available with alloc.
+#[cfg(feature = "std")]
 impl_new_from_pseudo_default!(Box<T>, T);
+
 impl_new_from_pseudo_default!(UnsafeCell<T>, T);
 impl_new_from_pseudo_default!(RefCell<T>, T);
 impl_new_from_pseudo_default!(ManuallyDrop<T>, T);
