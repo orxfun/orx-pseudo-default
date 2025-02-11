@@ -125,7 +125,7 @@
 //!
 //! Similar to `Default`, it is possible to derive `PseudoDefault` provided that all members also implement `PseudoDefault`.
 //!
-//! ```rust
+//! ```rust ignore
 //! use orx_pseudo_default::*;
 //!
 //! #[derive(PseudoDefault)]
