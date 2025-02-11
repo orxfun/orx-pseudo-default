@@ -1,5 +1,6 @@
-extern crate alloc;
+#![cfg(feature = "derive")]
 
+extern crate alloc;
 use alloc::string::String;
 use orx_pseudo_default::*;
 

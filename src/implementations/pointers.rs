@@ -1,4 +1,5 @@
 use crate::impl_new_from_pseudo_default;
+use alloc::boxed::Box;
 use core::{
     cell::{RefCell, UnsafeCell},
     mem::ManuallyDrop,
