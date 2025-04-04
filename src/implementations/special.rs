@@ -1,6 +1,6 @@
 use crate::PseudoDefault;
 
-impl<'a> PseudoDefault for &'a str {
+impl PseudoDefault for &str {
     fn pseudo_default() -> Self {
         ""
     }
