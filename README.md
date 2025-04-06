@@ -18,6 +18,8 @@ Note that pseudo-default requirement is more relaxed than that of default, and h
 * types implementing Default can implement PseudoDefault,
 * additionally, types that cannot implement Default can manually implement PseudoDefault, provided that it is safe and cheap to create a pseudo instance of the type without any arguments.
 
+> **no-std**: This crate supports **no-std**; however, *std* is added as a default feature together with *derive*. Please include with **no-default-features** for no-std use cases: `cargo add orx-pseudo-default --no-default-features`.
+
 # Example
 
 Consider the following fictional type `Share` which divides a whole into pieces. Without providing the `number_of_shares`, this type does not have a meaning.
@@ -92,6 +94,18 @@ let mut vec: TakeVec<_> = vec![0.to_string(), 1.to_string()].into();
 assert_eq!(vec.take(0), Some(String::from("0")));
 
 // non-default types
+
+struct Share {
+    number_of_shares: std::num::NonZeroUsize,
+}
+
+impl PseudoDefault for Share {
+    fn pseudo_default() -> Self {
+        Self {
+            number_of_shares: std::num::NonZeroUsize::new(1).unwrap(),
+        }
+    }
+}
 
 let mut vec: TakeVec<_> = vec![
     Share {

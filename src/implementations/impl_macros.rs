@@ -28,7 +28,7 @@ macro_rules! impl_on_static_life_type {
     };
 }
 
-/// Implements PseudoDefault on generic typo G<T> or G<T, U>.
+/// Implements PseudoDefault on generic type `G<T>` or `G<T, U>.`
 #[macro_export]
 macro_rules! impl_on_generic_type {
     ($t:ty, $g:ident, $value:expr) => {
@@ -48,7 +48,7 @@ macro_rules! impl_on_generic_type {
     };
 }
 
-/// Implements PseudoDefault on generic typo G<T> and &'a G<T>
+/// Implements PseudoDefault on generic type `G<T>` and `&'a G<T>`
 #[macro_export]
 macro_rules! impl_on_static_life_generic_type {
     ($t:ty, $g:ident, $value:expr) => {
@@ -66,7 +66,7 @@ macro_rules! impl_on_static_life_generic_type {
     };
 }
 
-/// Implements PseudoDefault on G<T> by calling G::new(T::pseudo_default())
+/// Implements PseudoDefault on `G<T>` by calling `G::new(T::pseudo_default())`
 #[macro_export]
 macro_rules! impl_new_from_pseudo_default {
     ($t:ty, $g:ident) => {

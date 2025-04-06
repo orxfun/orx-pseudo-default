@@ -1,7 +1,7 @@
 [package]
 name = "orx-pseudo-default"
-version = "2.0.0"
-edition = "2021"
+version = "2.1.0"
+edition = "2024"
 authors = ["orxfun <orx.ugur.arikan@gmail.com>"]
 description = "PseudoDefault trait allows to create a cheap default instance of a type, which does not claim to be useful."
 license = "MIT OR Apache-2.0"
@@ -10,7 +10,7 @@ keywords = ["default", "pseudo", "uninitialized", "swap"]
 categories = ["data-structures", "rust-patterns", "no-std"]
 
 [dependencies]
-orx-pseudo-default-derive = { version = "1.1", optional = true }
+orx-pseudo-default-derive = { version = "1.2.0", optional = true }
 
 [features]
 default = ["std", "derive"]
