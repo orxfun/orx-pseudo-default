@@ -10,7 +10,7 @@ keywords = ["default", "pseudo", "uninitialized", "swap"]
 categories = ["data-structures", "rust-patterns", "no-std"]
 
 [dependencies]
-orx-pseudo-default-derive = { path = "../orx-pseudo-default-derive", optional = true }
+orx-pseudo-default-derive = { version = "1.2.0", optional = true }
 
 [features]
 default = ["std", "derive"]
